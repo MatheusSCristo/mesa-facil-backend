@@ -1,5 +1,6 @@
 package com.mtcristo.mesa_facil.models;
 
+import com.mtcristo.mesa_facil.dtos.Restaurant.RestaurantCreateDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +26,11 @@ public class Restaurant {
     private Integer tables;
     private String email;
     private String password;
+
+    public Restaurant(RestaurantCreateDto restaurantCreateDto){
+        this.name=restaurantCreateDto.getName();
+        this.password=restaurantCreateDto.getPassword();
+        this.email=restaurantCreateDto.getEmail();
+    }
 
 }

@@ -1,8 +1,10 @@
 package com.mtcristo.mesa_facil.dtos.Order;
 
 import com.mtcristo.mesa_facil.dtos.OrderTicket.OrderTicketResponseDto;
+import com.mtcristo.mesa_facil.dtos.Product.ProductResponseDto;
 import com.mtcristo.mesa_facil.dtos.ProductOrder.ProductOrderResponseDto;
 import com.mtcristo.mesa_facil.enums.OrderStatus;
+import com.mtcristo.mesa_facil.models.Order;
 import com.mtcristo.mesa_facil.models.OrderTicket;
 import com.mtcristo.mesa_facil.models.ProductOrder;
 import com.mtcristo.mesa_facil.models.Restaurant;
@@ -26,4 +28,17 @@ public class OrderResponseDto {
     private Integer rating;
     private LocalDateTime date;
     private OrderStatus status;
+
+    public OrderResponseDto(Order order){
+        this.id=order.getId();
+        this.orderTicket=new OrderTicketResponseDto(order.getOrderTicket());
+        this.products=order.getProducts().stream().map(ProductOrderResponseDto::new).toList();
+        this.subTotal=order.getSubTotal();
+        this.tax=order.getTax();
+        this.tableNumber=order.getTableNumber();
+        this.rating=order.getRating();
+        this.date=order.getDate();
+        this.status=order.getStatus();
+    }
+
 }
