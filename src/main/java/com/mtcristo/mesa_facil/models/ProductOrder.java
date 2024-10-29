@@ -1,7 +1,6 @@
 package com.mtcristo.mesa_facil.models;
 
-import com.mtcristo.mesa_facil.models.enums.OrderStatus;
-import com.mtcristo.mesa_facil.models.enums.ProductOrderStatus;
+import com.mtcristo.mesa_facil.enums.ProductOrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +18,7 @@ public class ProductOrder {
     @ManyToOne
     private Product product;
     @Column(columnDefinition = "TEXT")
-    private String observations;
+    private String details;
     private Integer quantity;
     private ProductOrderStatus status = ProductOrderStatus.PROCESSING;
     @ManyToOne

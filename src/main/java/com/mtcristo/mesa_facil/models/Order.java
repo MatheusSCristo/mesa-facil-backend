@@ -1,6 +1,6 @@
 package com.mtcristo.mesa_facil.models;
 
-import com.mtcristo.mesa_facil.models.enums.OrderStatus;
+import com.mtcristo.mesa_facil.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.mtcristo.mesa_facil.models.enums;
+package com.mtcristo.mesa_facil.enums;
 
 public enum OrderStatus {
 
