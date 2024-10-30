@@ -24,4 +24,12 @@ public class ProductOrder {
     @ManyToOne
     private Order order;
 
+    public ProductOrder(Product product,String details, Integer quantity,Order order){
+        this.product=product;
+        this.details=details;
+        this.quantity=quantity;
+        this.order=order;
+    }
+
+
 }
