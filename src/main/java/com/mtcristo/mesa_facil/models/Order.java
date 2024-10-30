@@ -1,5 +1,6 @@
 package com.mtcristo.mesa_facil.models;
 
+import com.mtcristo.mesa_facil.dtos.Order.OrderCreateDto;
 import com.mtcristo.mesa_facil.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,11 +20,11 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private OrderTicket orderTicket;
     @ManyToOne
     private Restaurant restaurant;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private List<ProductOrder> products=new ArrayList<>();
     private Double subTotal;
     private Double tax;
@@ -31,4 +32,12 @@ public class Order {
     private Integer rating;
     private LocalDateTime date;
     private OrderStatus status;
+
+    public Order(OrderCreateDto orderCreateDto,Restaurant restaurant){
+        this.restaurant=restaurant;
+        this.tableNumber=orderCreateDto.getTableNumber();
+        this.date=orderCreateDto.getDate();
+        this.status=orderCreateDto.getStatus();
+
+    }
 }

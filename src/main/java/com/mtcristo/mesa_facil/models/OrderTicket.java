@@ -1,5 +1,6 @@
 package com.mtcristo.mesa_facil.models;
 
+import com.mtcristo.mesa_facil.dtos.OrderTicket.OrderTicketCreateDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,4 +18,9 @@ public class OrderTicket {
     private String name;
     @OneToOne
     private Order order;
+
+    public OrderTicket(OrderTicketCreateDto orderTicket,Order order) {
+        this.name=orderTicket.name();
+        this.order=order;
+    }
 }
