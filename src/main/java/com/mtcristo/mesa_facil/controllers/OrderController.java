@@ -36,7 +36,7 @@ public class OrderController {
         return ResponseEntity.ok().body(new OrderResponseDto(order));
     }
 
-    @PatchMapping
+    @PatchMapping("/add")
     public ResponseEntity<OrderResponseDto> addProductToOrder(@RequestParam String id,@RequestBody OrderAddProductDto orderAddProductDto){
         Order order=orderService.addProductToOrder(id,orderAddProductDto);
         return ResponseEntity.ok().body(new OrderResponseDto(order));

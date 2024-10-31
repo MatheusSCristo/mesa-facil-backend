@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class OrderTicket {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,4 +22,6 @@ public class OrderTicket {
         this.name=orderTicket.name();
         this.order=order;
     }
+
+
 }

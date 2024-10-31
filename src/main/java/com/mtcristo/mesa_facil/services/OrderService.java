@@ -4,6 +4,7 @@ import com.mtcristo.mesa_facil.dtos.Order.OrderAddProductDto;
 import com.mtcristo.mesa_facil.dtos.Order.OrderCreateDto;
 import com.mtcristo.mesa_facil.dtos.Order.OrderUpdateDto;
 import com.mtcristo.mesa_facil.dtos.ProductOrder.ProductOrderCreateDto;
+import com.mtcristo.mesa_facil.exceptions.CustomExceptions.OrderNotFoundException;
 import com.mtcristo.mesa_facil.exceptions.CustomExceptions.ProductNotFoundException;
 import com.mtcristo.mesa_facil.exceptions.CustomExceptions.RestaurantNotFoundException;
 import com.mtcristo.mesa_facil.models.*;
@@ -31,7 +32,7 @@ public class OrderService {
     private final ProductService productService;
 
     public Order findOrderById(String id) {
-        return orderRepository.findById(id).orElseThrow(RestaurantNotFoundException::new);
+        return orderRepository.findById(id).orElseThrow(OrderNotFoundException::new);
     }
 
     public Order createOrder(OrderCreateDto orderCreateDto) {
